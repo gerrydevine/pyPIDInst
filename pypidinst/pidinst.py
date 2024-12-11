@@ -140,14 +140,6 @@ class PIDInst():
                 raise TypeError("related_identifiers must be a list of RelatedIdentifier objects")
         self._related_identifiers = value
 
-    # def set_identifier(self, identifier):
-    #     if self.identifier:
-    #         raise ValueError("This Instrument record already has an identifier allocated")
-          
-    #     if not isinstance(identifier, Identifier):
-    #         raise TypeError("Identifier must be instance of Identifier class")
-    #     self.identifier = identifier
-
     def append_owner(self, owner):          
         if not isinstance(owner, Owner):
             raise TypeError("owner must be instance of Owner class")
@@ -162,19 +154,6 @@ class PIDInst():
         if not isinstance(related_identifier, RelatedIdentifier):
             raise TypeError("related_identifier must be instance of RelatedIdentifier class")
         self.related_identifiers.append(related_identifier)
-
-    # def set_model(self, model):          
-    #     if not isinstance(model, Model):
-    #         raise TypeError("model must be instance of Model class")
-    #     self.model = model
-
-    # def is_valid_for_doi(self):
-    #     ''' Returns whether or not record is valid for doi allocation via Datacite '''
-
-    #     if self._schema_version and self.landing_page and self.name and len(self.manufacturers) and len(self.owners) > 0 and self.identifier is None:
-    #         return True
-        
-    #     return False
 
     def is_valid_pidinst(self):
         ''' Returns whether or not record is valid PIDInst (all mandatory fields present) '''
@@ -481,14 +460,6 @@ class Model():
         if len(value) >= 200:
             raise ValueError("model_name must be less than 200 chars")
         self._model_name = value
-
-    # def set_model_identifier(self, model_identifier):
-    #   if self.model_identifier:
-    #       raise ValueError("This model record already has an model identifier allocated")
-          
-    #   if not isinstance(model_identifier, ModelIdentifier):
-    #       raise TypeError("Model Identifier must be instance of ModelIdentifier class")
-    #   self.model_identifier = model_identifier
 
 
 class RelatedIdentifier():
